@@ -66,4 +66,5 @@ $(function () {
             // window.location = '../firebaseAuthentication/index.html';
         }
     })
+    
 });
