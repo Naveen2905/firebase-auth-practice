@@ -27,7 +27,9 @@ $(function () {
             const email = txtEmail.value;
             const pass = txtPassword.value;
             const auth = firebase.auth();
-
+            $('#txtEmail').val('');
+            $('#txtPassword').val('');
+            // pass.val();
             const promise = auth.signInWithEmailAndPassword(email, pass);
             promise.catch(e => console.log(e.message))
         })
@@ -41,7 +43,8 @@ $(function () {
             const email = txtEmail.value;
             const pass = txtPassword.value;
             const auth = firebase.auth();
-
+            $('#txtEmail').val('');
+            $('#txtPassword').val('');
             const promise = auth.createUserWithEmailAndPassword(email, pass);
 
             promise.catch(e => console.log(e.message))
@@ -60,12 +63,10 @@ $(function () {
     firebase.auth().onAuthStateChanged(firebaseUser => {
 
         if (firebaseUser) {
-            console.log('Logged In');
             btnLogout.classList.remove('hide');
             $("#loginStatus").text("Logged In").removeClass('logout').addClass('login');
             // window.location.href = 'welcomePage.html';
         } else {
-            console.log(`Logged Out`);
             btnLogout.classList.add('hide')
             // window.location = 'index.html';
             $("#loginStatus").text("Logged Out").removeClass('login').addClass('logout');
