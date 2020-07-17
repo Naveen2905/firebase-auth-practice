@@ -62,13 +62,13 @@ $(function () {
         if (firebaseUser) {
             console.log('Logged In');
             btnLogout.classList.remove('hide');
-            $("#loginStatus").text("Logged In").addClass('login');
+            $("#loginStatus").text("Logged In").removeClass('logout').addClass('login');
             // window.location.href = 'welcomePage.html';
         } else {
             console.log(`Logged Out`);
             btnLogout.classList.add('hide')
             // window.location = 'index.html';
-            $("#loginStatus").text("Logged Out").addClass('logout');
+            $("#loginStatus").text("Logged Out").removeClass('login').addClass('logout');
         }
     })
 
