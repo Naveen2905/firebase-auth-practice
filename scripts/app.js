@@ -52,7 +52,6 @@ $(function () {
     // Sign Out 
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
-        window.location.href = 'index.html';
     })
 
     //Add realtime Authentication
