@@ -18,7 +18,6 @@ $(function () {
     const btnLogin = document.getElementById('btnLogin');
     const btnSignUp = document.getElementById('btnSignUp');
     const btnLogout = document.getElementById('btnLogout');
-    // const status = document.getElementById('loginStatus')
 
     // Sign In  
     if (btnLogin) {
@@ -29,7 +28,6 @@ $(function () {
             const auth = firebase.auth();
             $('#txtEmail').val('');
             $('#txtPassword').val('');
-            // pass.val();
             const promise = auth.signInWithEmailAndPassword(email, pass);
             promise.catch(e => console.log(e.message))
         })
@@ -54,8 +52,7 @@ $(function () {
     // Sign Out 
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
-        // window.location = 'index.html';
-        // console.log('Clicked');
+        window.location.href = 'index.html';
     })
 
     //Add realtime Authentication
@@ -65,10 +62,10 @@ $(function () {
         if (firebaseUser) {
             btnLogout.classList.remove('hide');
             $("#loginStatus").text("Logged In").removeClass('logout').addClass('login');
-            // window.location.href = 'welcomePage.html';
-        } else {
+        }
+        
+        else {
             btnLogout.classList.add('hide')
-            // window.location = 'index.html';
             $("#loginStatus").text("Logged Out").removeClass('login').addClass('logout');
         }
     })
